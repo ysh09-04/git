@@ -1,0 +1,92 @@
+create table TPerson  (
+   pid                varchar2(30)                    not null,
+   name               varchar2(20),
+   birthday           DATE,
+   address            varchar2(100),
+   sex                char(1),
+   constraint PK_TPERSON primary key (pid)
+);
+
+create table TMeeting  (
+   autoid             number(9)                       not null,
+   topic              varchar2(120),
+   constraint PK_TMEETING primary key (autoid)
+);
+
+create table MeetingPerson  (
+   autoid             number(9)                       not null,
+   pid                varchar2(30)                    not null,
+   mid                number(9)                       not null,
+   constraint PK_MEETINGPESON primary key (autoid)
+);
+
+alter table MeetingPerson
+   add constraint FK_MEETINGP_REFERENCE_TMEETING foreign key (mid)
+      references TMeeting (autoid);
+
+alter table MeetingPerson
+   add constraint FK_MEETINGP_REFERENCE_TPERSON foreign key (pid)
+      references TPerson (pid);
+
+
+insert into tmeeting values(1,'抓工作，促生产，全体动员大会');
+insert into tmeeting values(2,'坚决杜绝腐败，打击小资思想');
+
+
+insert into tperson values('001','tom',to_date('1981-1-1','yyyy-mm-dd'),'北京昌平区职业交通学院','m');
+insert into tperson values('002','jack',to_date('1981-1-1','yyyy-mm-dd'),'北京昌平区职业交通学院','y');
+insert into tperson values('003','hellen',to_date('1981-1-1','yyyy-mm-dd'),'北京昌平区职业交通学院','m');
+insert into tperson values('004','chiss',to_date('1981-1-1','yyyy-mm-dd'),'北京昌平区职业交通学院','m');
+insert into tperson values('005','wensent',to_date('1981-1-1','yyyy-mm-dd'),'北京昌平回龙观','m');
+insert into tperson values('006','xiaoen',to_date('1981-1-1','yyyy-mm-dd'),'北京昌平区职业交通学院','y');
+insert into tperson values('007','jim',to_date('1981-1-1','yyyy-mm-dd'),'北京昌平回龙观','m');
+insert into tperson values('008','tom1',to_date('1981-1-1','yyyy-mm-dd'),'北京昌平回龙观','m');
+insert into tperson values('009','tom2',to_date('1981-1-1','yyyy-mm-dd'),'北京昌平回龙观','y');
+insert into tperson values('010','tom3',to_date('1981-1-1','yyyy-mm-dd'),'北京昌平回龙观','m');
+insert into tperson values('011','tom4',to_date('1981-1-1','yyyy-mm-dd'),'北京昌平回龙观','y');
+insert into tperson values('012','tom5',to_date('1981-1-1','yyyy-mm-dd'),'北京昌平回龙观','m');
+insert into tperson values('013','tom6',to_date('1981-1-1','yyyy-mm-dd'),'北京昌平回龙观','y');
+insert into tperson values('014','tom7',to_date('1981-1-1','yyyy-mm-dd'),'北京昌平回龙观','m');
+insert into tperson values('015','tom8',to_date('1981-1-1','yyyy-mm-dd'),'北京昌平回龙观','y');
+
+insert into tperson values('020','张三',to_date('1988-7-6','yyyy-mm-dd'),'上海闸北区','y');
+insert into tperson values('021','李四',to_date('1989-7-6','yyyy-mm-dd'),'上海闸北区','y');
+insert into tperson values('022','张二小',to_date('1988-8-6','yyyy-mm-dd'),'上海闸北区','y');
+insert into tperson values('023','张三疯',to_date('1986-7-6','yyyy-mm-dd'),'上海闸北区','y');
+insert into tperson values('024','张四',to_date('1985-7-6','yyyy-mm-dd'),'上海闸北区','y');
+insert into tperson values('025','张1',to_date('1984-7-6','yyyy-mm-dd'),'上海闸北区','m');
+insert into tperson values('026','张2',to_date('1988-7-6','yyyy-mm-dd'),'上海闸北区','y');
+insert into tperson values('027','张3',to_date('1988-7-6','yyyy-mm-dd'),'上海闸北区','y');
+insert into tperson values('028','张4',to_date('1988-7-6','yyyy-mm-dd'),'上海闸北区','y');
+insert into tperson values('029','张5',to_date('1988-7-6','yyyy-mm-dd'),'上海闸北区','m');
+insert into tperson values('030','张6',to_date('1988-7-6','yyyy-mm-dd'),'上海闸北区','y');
+insert into tperson values('031','张7',to_date('1988-7-6','yyyy-mm-dd'),'上海闸北区','y');
+
+insert into tperson values('040','张40',to_date('1988-7-6','yyyy-mm-dd'),'北京海淀','y');
+insert into tperson values('041','张41',to_date('1988-7-6','yyyy-mm-dd'),'北京海淀','y');
+insert into tperson values('042','张42',to_date('1988-7-6','yyyy-mm-dd'),'北京海淀','y');
+insert into tperson values('043','张43',to_date('1988-7-6','yyyy-mm-dd'),'北京海淀','y');
+insert into tperson values('044','张44',to_date('1988-7-6','yyyy-mm-dd'),'北京海淀','y');
+insert into tperson values('045','张45',to_date('1988-7-6','yyyy-mm-dd'),'北京海淀','y');
+insert into tperson values('046','张46',to_date('1988-7-6','yyyy-mm-dd'),'北京海淀','y');
+insert into tperson values('047','张47',to_date('1988-7-6','yyyy-mm-dd'),'北京海淀','y');
+insert into tperson values('048','张48',to_date('1988-7-6','yyyy-mm-dd'),'北京海淀','y');
+insert into tperson values('049','张49',to_date('1988-7-6','yyyy-mm-dd'),'北京海淀','y');
+insert into tperson values('050','张50',to_date('1988-7-6','yyyy-mm-dd'),'北京海淀','y');
+insert into tperson values('051','张51',to_date('1988-7-6','yyyy-mm-dd'),'北京海淀','y');
+insert into tperson values('052','张52',to_date('1988-7-6','yyyy-mm-dd'),'北京海淀','y');
+insert into tperson values('053','张53',to_date('1988-7-6','yyyy-mm-dd'),'北京海淀','y');
+insert into tperson values('054','张54',to_date('1988-7-6','yyyy-mm-dd'),'北京海淀','y');
+
+
+
+
+
+
+
+
+
+
+
+
+
